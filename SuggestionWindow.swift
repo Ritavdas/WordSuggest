@@ -17,14 +17,21 @@ class SuggestionWindow: NSWindow {
                   backing: .buffered,
                   defer: false)
     }
-    
+
+    // Override these properties to prevent the window from becoming key or main
+    override var canBecomeKey: Bool {
+        return false
+    }
+
+    override var canBecomeMain: Bool {
+        return false
+    }
+
     private func setupWindow() {
         self.isOpaque = false
         self.backgroundColor = NSColor.clear
         self.level = NSWindow.Level.floating
         self.hasShadow = true
-        self.canBecomeKey = false
-        self.canBecomeMain = false
         self.isReleasedWhenClosed = false
         
         // Create background view with blur effect
