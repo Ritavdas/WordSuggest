@@ -36,30 +36,46 @@ class TextMonitor {
     }
     
     private func setupHotKey() {
+        updateHotkey(UserSettings.shared.hotkey)
+    }
+
+    func updateHotkey(_ hotkey: Hotkey?) {
+        // Unregister existing hotkey
+        if hotKeyRef != nil {
+            UnregisterEventHotKey(hotKeyRef!)
+            hotKeyRef = nil
+        }
+
+        guard let hotkey = hotkey else { return }
+
         let hotKeySignature = FourCharCode(bitPattern: 0x574F5244) // 'WORD'
         let hotKeyID = UInt32(1)
-        
-        // Cmd+Shift+W hotkey
-        let keyCode = UInt32(kVK_ANSI_W)
-        let modifiers = UInt32(cmdKey | shiftKey)
-        
+
+        let keyCode = UInt32(hotkey.keyCode)
+        var modifiers: UInt32 = 0
+
+        if hotkey.modifierFlags.contains(.command) { modifiers |= UInt32(cmdKey) }
+        if hotkey.modifierFlags.contains(.shift) { modifiers |= UInt32(shiftKey) }
+        if hotkey.modifierFlags.contains(.option) { modifiers |= UInt32(optionKey) }
+        if hotkey.modifierFlags.contains(.control) { modifiers |= UInt32(controlKey) }
+
         var hotKeyEventType = EventTypeSpec()
         hotKeyEventType.eventClass = OSType(kEventClassKeyboard)
         hotKeyEventType.eventKind = OSType(kEventHotKeyPressed)
-        
+
         hotKeyEventHandler = { (nextHandler, theEvent, userData) -> OSStatus in
             let monitor = Unmanaged<TextMonitor>.fromOpaque(userData!).takeUnretainedValue()
             monitor.handleHotKeyPressed()
             return noErr
         }
-        
+
         InstallEventHandler(GetApplicationEventTarget(),
                           hotKeyEventHandler!,
                           1,
                           &hotKeyEventType,
                           Unmanaged.passUnretained(self).toOpaque(),
                           nil)
-        
+
         RegisterEventHotKey(keyCode,
                           modifiers,
                           EventHotKeyID(signature: hotKeySignature, id: hotKeyID),

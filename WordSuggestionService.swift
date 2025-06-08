@@ -5,7 +5,7 @@ struct WordSuggestion {
     let type: SuggestionType
     let confidence: Double
     
-    enum SuggestionType {
+    enum SuggestionType: String, Codable {
         case synonym
         case alternative
         case related

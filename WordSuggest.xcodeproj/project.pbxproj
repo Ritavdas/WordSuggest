@@ -7,22 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D1107380486CEB800E47090 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.swift */; };
-		8D1107360486CEB800E47090 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B97317FDCFA39411CA2CEA /* AppDelegate.swift */; };
 		8D1107330486CEB800E47090 /* TextMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* TextMonitor.swift */; };
 		8D1107340486CEB800E47090 /* WordSuggestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B97319FDCFA39411CA2CEA /* WordSuggestionService.swift */; };
 		8D1107350486CEB800E47090 /* SuggestionWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B9731AFDCFA39411CA2CEA /* SuggestionWindow.swift */; };
-		8D1107370486CEB800E47090 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D1107310486CEB800E47090 /* Info.plist */; };
+		8D1107360486CEB800E47090 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B97317FDCFA39411CA2CEA /* AppDelegate.swift */; };
+		8D1107380486CEB800E47090 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.swift */; };
+		8D1107390486CEB800E47090 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B9731CFDCFA39411CA2CEA /* MainWindowController.swift */; };
+		8D11073A0486CEB800E47090 /* HotkeyRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B9731DFDCFA39411CA2CEA /* HotkeyRecorderView.swift */; };
+		8D11073B0486CEB800E47090 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B9731EFDCFA39411CA2CEA /* UserSettings.swift */; };
+		8D11073C0486CEB800E47090 /* WordHistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B9731FFDCFA39411CA2CEA /* WordHistoryManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8D1107320486CEB800E47090 /* WordSuggest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordSuggest.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		29B97317FDCFA39411CA2CEA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29B97318FDCFA39411CA2CEA /* TextMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMonitor.swift; sourceTree = "<group>"; };
 		29B97319FDCFA39411CA2CEA /* WordSuggestionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSuggestionService.swift; sourceTree = "<group>"; };
 		29B9731AFDCFA39411CA2CEA /* SuggestionWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionWindow.swift; sourceTree = "<group>"; };
+		29B9731CFDCFA39411CA2CEA /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		29B9731DFDCFA39411CA2CEA /* HotkeyRecorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotkeyRecorderView.swift; sourceTree = "<group>"; };
+		29B9731EFDCFA39411CA2CEA /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		29B9731FFDCFA39411CA2CEA /* WordHistoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordHistoryManager.swift; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* WordSuggest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordSuggest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +50,10 @@
 				29B97318FDCFA39411CA2CEA /* TextMonitor.swift */,
 				29B97319FDCFA39411CA2CEA /* WordSuggestionService.swift */,
 				29B9731AFDCFA39411CA2CEA /* SuggestionWindow.swift */,
+				29B9731CFDCFA39411CA2CEA /* MainWindowController.swift */,
+				29B9731DFDCFA39411CA2CEA /* HotkeyRecorderView.swift */,
+				29B9731EFDCFA39411CA2CEA /* UserSettings.swift */,
+				29B9731FFDCFA39411CA2CEA /* WordHistoryManager.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -135,7 +146,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					8D1107260486CEB800E47090 = {
 						CreatedOnToolsVersion = 15.0;
@@ -165,7 +176,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D1107370486CEB800E47090 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +191,10 @@
 				8D1107330486CEB800E47090 /* TextMonitor.swift in Sources */,
 				8D1107340486CEB800E47090 /* WordSuggestionService.swift in Sources */,
 				8D1107350486CEB800E47090 /* SuggestionWindow.swift in Sources */,
+				8D1107390486CEB800E47090 /* MainWindowController.swift in Sources */,
+				8D11073A0486CEB800E47090 /* HotkeyRecorderView.swift in Sources */,
+				8D11073B0486CEB800E47090 /* UserSettings.swift in Sources */,
+				8D11073C0486CEB800E47090 /* WordHistoryManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +206,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -215,6 +230,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.WordSuggest;
 				PRODUCT_NAME = WordSuggest;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -229,6 +245,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -245,6 +262,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.WordSuggest;
 				PRODUCT_NAME = WordSuggest;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -287,9 +305,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -348,9 +368,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
