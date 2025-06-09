@@ -5,7 +5,6 @@ class SuggestionWindow: NSWindow {
     private var containerView: NSView!
     private var backgroundView: NSVisualEffectView!
     private var currentSuggestions: [WordSuggestion] = []
-    private var currentOriginalWord: String?
     
     override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool) {
         super.init(contentRect: contentRect, styleMask: [.borderless], backing: backingStoreType, defer: flag)
@@ -66,11 +65,6 @@ class SuggestionWindow: NSWindow {
     func showSuggestions(_ suggestions: [WordSuggestion], at location: CGPoint) {
         // Store current suggestions
         currentSuggestions = suggestions
-
-        // Try to extract original word from the most recent history entry
-        if let recentEntry = WordHistoryManager.shared.getAllEntries().first {
-            currentOriginalWord = recentEntry.originalWord
-        }
         
         // Clear existing buttons
         suggestionButtons.forEach { $0.removeFromSuperview() }
@@ -205,37 +199,26 @@ class SuggestionWindow: NSWindow {
     @objc private func suggestionButtonClicked(_ sender: NSButton) {
         guard sender.tag < suggestionButtons.count,
               let suggestion = getSuggestionForButton(sender) else { return }
-
-        // Record suggestion usage in history
-        if let originalWord = getOriginalWordForCurrentSuggestions() {
-            WordHistoryManager.shared.recordSuggestionUsed(
-                originalWord: originalWord,
-                selectedSuggestion: suggestion.word,
-                suggestionType: suggestion.type
-            )
-        }
-
+        
         // Copy suggestion to clipboard
         let pasteboard = NSPasteboard.general
         pasteboard.clearContents()
         pasteboard.setString(suggestion.word, forType: .string)
-
+        
         // Visual feedback
         sender.layer?.backgroundColor = NSColor.controlAccentColor.cgColor
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             sender.layer?.backgroundColor = NSColor.clear.cgColor
         }
-
+        
         // Hide window after selection
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
             self?.orderOut(nil)
         }
-
-        // Show notification if enabled
-        if UserSettings.shared.showNotifications {
-            showCopiedNotification(for: suggestion.word)
-        }
+        
+        // Show notification
+        showCopiedNotification(for: suggestion.word)
     }
     
     private func getSuggestionForButton(_ button: NSButton) -> WordSuggestion? {
@@ -290,9 +273,5 @@ class SuggestionWindow: NSWindow {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
             self?.orderOut(nil)
         }
-    }
-
-    private func getOriginalWordForCurrentSuggestions() -> String? {
-        return currentOriginalWord
     }
 }
